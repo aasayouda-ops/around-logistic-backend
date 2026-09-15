@@ -1,0 +1,29 @@
+{
+  "name": "around-logistic-api",
+  "version": "1.0.0",
+  "description": "Around Logistic — Cold Chain API Server",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "db:migrate": "node src/db/migrate.js",
+    "db:seed": "node src/db/seed.js"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.0",
+    "@fastify/jwt": "^8.0.0",
+    "@fastify/multipart": "^8.0.0",
+    "@fastify/rate-limit": "^9.0.0",
+    "@fastify/websocket": "^8.0.0",
+    "bcrypt": "^5.1.1",
+    "fastify": "^4.26.0",
+    "pg": "^8.11.3",
+    "redis": "^4.6.13",
+    "zod": "^3.22.4",
+    "uuid": "^9.0.0",
+    "dotenv": "^16.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
