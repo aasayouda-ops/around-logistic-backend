@@ -15,10 +15,6 @@ import notificationsRoutes from './routes/notifications/index.js';
 import paymentsRoutes     from './routes/payments/index.js';
 import adminRoutes        from './routes/admin/index.js';
 import publicApiRoutes    from './routes/public/index.js';
-import sallaRoutes        from './routes/integrations/salla.js';
-import zidRoutes          from './routes/integrations/zid.js';
-import shopifyRoutes      from './routes/integrations/shopify.js';
-import integrationManageRoutes from './routes/integrations/manage.js';
 import { pushNotification } from './routes/notifications/index.js';
 import { sendSMS, sendWhatsApp, templates } from './services/unifonic.js';
 import { generateInvoice } from './services/zatca.js';
@@ -64,15 +60,10 @@ fastify.register(notificationsRoutes, { prefix: '/api/notifications' });
 fastify.register(paymentsRoutes,      { prefix: '/api/payments' });
 fastify.register(adminRoutes,         { prefix: '/api/admin' });
 fastify.register(publicApiRoutes,     { prefix: '/v1' });
-fastify.register(sallaRoutes,         { prefix: '/integrations/salla' });
-fastify.register(zidRoutes,           { prefix: '/integrations/zid' });
-fastify.register(shopifyRoutes,       { prefix: '/integrations/shopify' });
-fastify.register(integrationManageRoutes, { prefix: '/api/integrations' });
 // ── WebSocket: Real-time updates ──────────────────────────────
 
 const wsClients = new Map(); // shipmentId → Set<socket>
 
-fastify.register(async function wsPlugin(fastify) {
   fastify.get('/ws', { websocket: true }, (socket) => {
     socket.on('message', (raw) => {
       try {
