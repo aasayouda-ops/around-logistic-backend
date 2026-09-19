@@ -34,6 +34,7 @@ await fastify.register(cors, {
     'https://app.aroundlogistic.sa',
     'https://admin.aroundlogistic.sa',
     'https://around-logistic-frontend.vercel.app',
+    'https://around-logistic-admin.vercel.app',
     'http://localhost:3000'
   ],
   credentials: true
